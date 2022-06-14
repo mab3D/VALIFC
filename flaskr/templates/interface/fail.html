@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Fail{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <a href="{{ url_for('upload_file') }}">Home</a>
+{% endblock %}

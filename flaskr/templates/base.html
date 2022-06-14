@@ -1,0 +1,24 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - ValIFC</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<!-- https://www.w3.org/Style/Examples/007/fonts.nl.html -->
+<nav>
+  <h1>ValIFC</h1>
+
+  <ul>
+      <li><a href="{{ url_for('quickview') }}">Quickview</a>
+      <li><a href="{{ url_for('info') }}">Info</a>
+  </ul>
+</nav>
+<center>
+<br><img src="{{ url_for('static', filename='IFCVALtransparantsmall.png') }}" alt="ValIFClogo" width="30%" height="30%">
+</center>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
